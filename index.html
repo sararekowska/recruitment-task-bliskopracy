@@ -10,6 +10,8 @@
         --grey: rgb(41, 44, 51);
         --white: rgb(255, 255, 255);
         --bg: rgb(229, 232, 235);
+        --shadow: rgba(58, 58, 58, 0.2);
+        --orange: rgb(254, 74, 37);
       }
 
       @font-face {
@@ -61,6 +63,7 @@
       }
 
       .card-container {
+        cursor: pointer;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -84,18 +87,31 @@
         transform: translate(-50%, -50%);
       }
 
+      .card-container:hover {
+        box-shadow: 0 4px 8px 0 var(--shadow), 0 6px 20px 0 var(--shadow);
+      }
+
+      .desktop {
+        display: none;
+      }
+
       svg {
         height: 1.25rem;
         width: 1.25rem;
       }
 
       .card {
-        cursor: pointer;
         display: flex;
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
       }
 
-      .card > h2 {
+      .card-details {
+        display: flex;
+      }
+
+      .card-details > h2 {
         color: var(--grey);
         font-size: 1rem;
         font-weight: 500;
@@ -115,13 +131,14 @@
         display: none;
       }
 
-      .btn {
+      .btn-container {
+        width: 100%;
         display: flex;
         justify-content: center;
-        margin-top: 2rem;
+        margin-top: 2.5rem;
       }
 
-      .btn > button {
+      .btn {
         font-family: TTNormsProRegular;
         font-size: 0.875rem;
         border: 1px solid var(--white);
@@ -133,6 +150,10 @@
         letter-spacing: 1px;
         font-weight: 900;
         background-color: var(--bg);
+      }
+
+      .btn:hover {
+        border-color: var(--orange);
       }
 
       .btn-in {
@@ -155,8 +176,17 @@
       }
 
       @media screen and (min-width: 770px) {
+
+        .desktop {
+          display: block;
+        }
+
         .main-container {
           max-width: 45rem;
+        }
+
+        .card {
+          padding: 60px 1.5rem 1.5rem;
         }
 
         .cards-main {
@@ -166,67 +196,110 @@
         .card-container {
           width: 100%;
           height: auto;
-          min-height: 8.5rem;
+          min-height: 9.5rem;
           margin: 3.75rem 0.75rem 1rem;
           max-width: calc(50% - 1.5rem);
+        }
+
+        .card-container > img {
+          top:0;
+          left: 50%;
+          width: 6.250rem;
+          height: 6.250rem;
+        }
+
+        .card-icon > svg {
+          width: 2rem;
+          height: 2rem;
+        }
+
+      }
+
+      @media screen and (min-width: 990px) {
+
+        .card-container {
+          max-width: calc(33% - 1.5rem);
+        }
+
+        .main-container {
+          max-width: 60rem;
+        }
+
+        h2 {
+          margin-bottom: 3.5rem;
+          font-size: 2rem;
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        .card-container {
+          max-width: calc(25% - 1.5rem);
+        }
+
+        .main-container {
+          max-width: 98rem;
+        }
+
+        h2 {
+          font-size: 2.5rem;
         }
       }
     </style>
   </head>
 
   <body>
-    <main>
+    <main >
       <div class="main-container">
         <section class="header">
           <h3>kategorie</h3>
           <h2>Jakiej pracy szukasz?</h2>
         </section>
         <div class="cards-main">
+          
           <div class="card-container">
             <div class="card">
-              <h2>Administracja biurowa</h2>
-
-              <div>
+              <div class="card-details">
+                <h2>Administracja biurowa</h2>
+                <div>
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                      fill="rgb(255, 74, 38)"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-icon">
                 <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
-                    fill="rgb(255, 74, 38)"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M5 12H1V38H34.7808L39.2808 20H35V12H31V14H33V20H5.21927L3 28.8771V14H5V12ZM3.28083 36H33.2193L36.7193 22H6.78083L3.28083 36Z"
+                    fill="#4A2CC2"
                   ></path>
+                  <g style="mix-blend-mode: darken">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M5 2H24.4142L31 8.58579V22H29V9.41421L23.5858 4H7V22H5V2Z"
+                      fill="#FF4A26"
+                    ></path>
+                  </g>
                 </svg>
               </div>
             </div>
-
-            <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M5 12H1V38H34.7808L39.2808 20H35V12H31V14H33V20H5.21927L3 28.8771V14H5V12ZM3.28083 36H33.2193L36.7193 22H6.78083L3.28083 36Z"
-                  fill="#4A2CC2"
-                ></path>
-                <g style="mix-blend-mode: darken">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M5 2H24.4142L31 8.58579V22H29V9.41421L23.5858 4H7V22H5V2Z"
-                    fill="#FF4A26"
-                  ></path>
-                </g>
-              </svg>
-            </div>
-
             <img
               src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
               alt="administracja biurowa"
@@ -235,55 +308,57 @@
 
           <div class="card-container">
             <div class="card">
-              <h2>Budowa i remonty</h2>
+              <div class="card-details">
+                <h2>Budowa i remonty</h2>
 
-              <div>
+                <div>
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                      fill="rgb(255, 74, 38)"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-icon">
                 <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
-                    fill="rgb(255, 74, 38)"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0 5H21V14H31V23H40V34H0V5ZM2 7V32H38V25H29V16H19V7H2Z"
+                    fill="#4A2CC2"
                   ></path>
+                  <g style="mix-blend-mode: darken">
+                    <path
+                      d="M12 16H21V14H0V16H10V23H0V25H19V34H21V25H31V23H12V16Z"
+                      fill="#FF4A26"
+                    ></path>
+                  </g>
                 </svg>
               </div>
             </div>
+          <img
+            src="https://bliskopracy.pl/images/categories/budowa-i-remonty.png"
+            alt="budowa i remonty"
+          />
+        </div>
 
-            <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M0 5H21V14H31V23H40V34H0V5ZM2 7V32H38V25H29V16H19V7H2Z"
-                  fill="#4A2CC2"
-                ></path>
-                <g style="mix-blend-mode: darken">
-                  <path
-                    d="M12 16H21V14H0V16H10V23H0V25H19V34H21V25H31V23H12V16Z"
-                    fill="#FF4A26"
-                  ></path>
-                </g>
-              </svg>
-            </div>
-
-            <img
-              src="https://bliskopracy.pl/images/categories/budowa-i-remonty.png"
-              alt="budowa i remonty"
-            />
-          </div>
-
-          <div class="card-container">
-            <div class="card">
+        <div class="card-container">
+          <div class="card">
+            <div class="card-details">
               <h2>E-commerce</h2>
               <div>
                 <svg
@@ -300,7 +375,6 @@
                 </svg>
               </div>
             </div>
-
             <div class="card-icon">
               <svg
                 width="20"
@@ -323,63 +397,66 @@
                 ></path>
               </svg>
             </div>
-
-            <img
-              src="https://bliskopracy.pl/images/categories/e-commerce.png"
-              alt="e-commerce"
-            />
           </div>
 
-          <div class="card-container">
-            <div class="card">
+          <img
+            src="https://bliskopracy.pl/images/categories/e-commerce.png"
+            alt="e-commerce"
+          />
+        </div>
+
+        <div class="card-container">
+          <div class="card">
+              <div class="card-details">
               <h2>Gastronomia</h2>
-              <div>
+                <div>
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                      fill="rgb(255, 74, 38)"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="card-icon">
                 <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
+                  <g style="mix-blend-mode: darken">
+                    <path
+                      d="M16 32V28H14V32H8V34H32V32H26V28H24V32H21V28H19V32H16Z"
+                      fill="#FF4A26"
+                    ></path>
+                  </g>
                   <path
-                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
-                    fill="rgb(255, 74, 38)"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20 2C23.5519 2 26.6232 4.05757 28.0871 7.04581C28.3875 7.01551 28.692 7 29 7C33.9706 7 38 11.0294 38 16C38 19.9187 35.4956 23.2524 32 24.4879V38H8V24.4879C4.50442 23.2524 2 19.9187 2 16C2 11.0294 6.02944 7 11 7C11.308 7 11.6125 7.01551 11.9129 7.04581C13.3768 4.05757 16.4481 2 20 2ZM13 11C13 7.13401 16.134 4 20 4C23.866 4 27 7.13401 27 11C27 11.6961 26.8987 12.3672 26.7104 13H28.7768C28.9229 12.3562 29 11.6867 29 11C29 10.3138 28.9232 9.64562 28.7778 9.00345C28.8515 9.00116 28.9256 9 29 9C32.866 9 36 12.134 36 16C36 19.866 32.866 23 29 23C28.6601 23 28.3262 22.9758 28 22.9292V24.945C28.3286 24.9814 28.6622 25 29 25C29.338 25 29.6717 24.9814 30 24.9451V36H10V24.9451C10.3283 24.9814 10.662 25 11 25C11.3378 25 11.6714 24.9813 12 24.945V22.9292C11.6738 22.9758 11.3399 23 11 23C7.13401 23 4 19.866 4 16C4 12.134 7.13401 9 11 9C11.0744 9 11.1485 9.00116 11.2222 9.00345C11.0768 9.64562 11 10.3138 11 11C11 11.6867 11.0771 12.3562 11.2232 13H13.2896C13.1013 12.3672 13 11.6961 13 11Z"
+                    fill="#4A2CC2"
                   ></path>
                 </svg>
               </div>
             </div>
+          
+          <img
+            src="https://bliskopracy.pl/images/categories/gastronomia.png"
+            alt="gastronomia"
+          />
+        </div>
 
-            <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g style="mix-blend-mode: darken">
-                  <path
-                    d="M16 32V28H14V32H8V34H32V32H26V28H24V32H21V28H19V32H16Z"
-                    fill="#FF4A26"
-                  ></path>
-                </g>
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M20 2C23.5519 2 26.6232 4.05757 28.0871 7.04581C28.3875 7.01551 28.692 7 29 7C33.9706 7 38 11.0294 38 16C38 19.9187 35.4956 23.2524 32 24.4879V38H8V24.4879C4.50442 23.2524 2 19.9187 2 16C2 11.0294 6.02944 7 11 7C11.308 7 11.6125 7.01551 11.9129 7.04581C13.3768 4.05757 16.4481 2 20 2ZM13 11C13 7.13401 16.134 4 20 4C23.866 4 27 7.13401 27 11C27 11.6961 26.8987 12.3672 26.7104 13H28.7768C28.9229 12.3562 29 11.6867 29 11C29 10.3138 28.9232 9.64562 28.7778 9.00345C28.8515 9.00116 28.9256 9 29 9C32.866 9 36 12.134 36 16C36 19.866 32.866 23 29 23C28.6601 23 28.3262 22.9758 28 22.9292V24.945C28.3286 24.9814 28.6622 25 29 25C29.338 25 29.6717 24.9814 30 24.9451V36H10V24.9451C10.3283 24.9814 10.662 25 11 25C11.3378 25 11.6714 24.9813 12 24.945V22.9292C11.6738 22.9758 11.3399 23 11 23C7.13401 23 4 19.866 4 16C4 12.134 7.13401 9 11 9C11.0744 9 11.1485 9.00116 11.2222 9.00345C11.0768 9.64562 11 10.3138 11 11C11 11.6867 11.0771 12.3562 11.2232 13H13.2896C13.1013 12.3672 13 11.6961 13 11Z"
-                  fill="#4A2CC2"
-                ></path>
-              </svg>
-            </div>
-
-            <img
-              src="https://bliskopracy.pl/images/categories/gastronomia.png"
-              alt="gastronomia"
-            />
-          </div>
-
-          <div class="card-container">
-            <div class="card">
+        <div class="card-container">
+          <div class="card">
+            <div class="card-details">
               <h2>IT/telekomunikacja</h2>
               <div>
                 <svg
@@ -396,7 +473,6 @@
                 </svg>
               </div>
             </div>
-
             <div class="card-icon">
               <svg
                 width="40"
@@ -425,32 +501,33 @@
                 </g>
               </svg>
             </div>
-
-            <img
-              src="https://bliskopracy.pl/images/categories/it-telekomunikacja.png"
-              alt="it/telekomunikacja"
-            />
           </div>
+            
+          <img
+            src="https://bliskopracy.pl/images/categories/it-telekomunikacja.png"
+            alt="it/telekomunikacja"
+          />
+        </div>
 
-          <div class="card-container">
-            <div class="card">
+        <div class="card-container">
+          <div class="card">
+            <div class="card-details">
               <h2>Ekspedient/kasjer</h2>
               <div>
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
-                    fill="rgb(255, 74, 38)"
-                  ></path>
-                </svg>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                  fill="rgb(255, 74, 38)"
+                ></path>
+              </svg>
               </div>
             </div>
-
             <div class="card-icon">
               <svg
                 width="40"
@@ -480,15 +557,17 @@
                 </g>
               </svg>
             </div>
-
-            <img
-              src="https://bliskopracy.pl/images/categories/ekspedient-kasjer.png"
-              alt="ekspedient/kasjer"
-            />
           </div>
 
-          <div class="card-container desktop">
-            <div class="card">
+          <img
+            src="https://bliskopracy.pl/images/categories/ekspedient-kasjer.png"
+            alt="ekspedient/kasjer"
+          />
+        </div>
+
+        <div class="card-container desktop">
+          <div class="card">
+            <div class="card-details">
               <h2>Kierowca/kurier</h2>
               <div>
                 <svg
@@ -505,135 +584,164 @@
                 </svg>
               </div>
             </div>
-            <img
-              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
-              alt="administracja biurowa"
-            />
-          </div>
-
-          <div class="card-container desktop">
-            <div class="card">
-              <h2>Magazynier</h2>
-              <div>
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
-                    fill="rgb(255, 74, 38)"
-                  ></path>
-                </svg>
-              </div>
+            <div class="card-icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 34C14.8638 34 16.4299 32.7252 16.874 31H29.126C29.5701 32.7252 31.1362 34 33 34C34.8638 34 36.4299 32.7252 36.874 31H40V18.8843L33.3802 13H28V6H5V31H9.12602C9.57006 32.7252 11.1362 34 13 34ZM26 8H7V29H9.12602C9.57006 27.2748 11.1362 26 13 26C14.8638 26 16.4299 27.2748 16.874 29H26V8ZM33 32C32.2597 32 31.6134 31.5978 31.2676 31C31.0974 30.7058 31 30.3643 31 30C31 29.6357 31.0974 29.2942 31.2676 29C31.6134 28.4022 32.2597 28 33 28C33.7403 28 34.3866 28.4022 34.7324 29C34.9026 29.2942 35 29.6357 35 30C35 30.3643 34.9026 30.7058 34.7324 31C34.3866 31.5978 33.7403 32 33 32ZM33 26C34.8638 26 36.4299 27.2748 36.874 29H38V19.7824L32.6198 15H28V29H29.126C29.5701 27.2748 31.1362 26 33 26ZM14.7324 29C14.3866 28.4022 13.7403 28 13 28C12.2597 28 11.6134 28.4022 11.2676 29C11.0974 29.2942 11 29.6357 11 30C11 30.3643 11.0974 30.7058 11.2676 31C11.6134 31.5978 12.2597 32 13 32C13.7403 32 14.3866 31.5978 14.7324 31C14.9026 30.7058 15 30.3643 15 30C15 29.6357 14.9026 29.2942 14.7324 29Z" fill="#4A2CC2"></path><g style="mix-blend-mode: darken;"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 13.5H0V11.5H12V13.5Z" fill="#FF4A26"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M14 18.5H2V16.5H14V18.5Z" fill="#FF4A26"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 23.5H0V21.5H12V23.5Z" fill="#FF4A26"></path></g></svg>
             </div>
-            <img
-              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
-              alt="administracja biurowa"
-            />
           </div>
-
-          <div class="card-container desktop">
-            <div class="card">
-              <h2>Obsługa klienta</h2>
-              <div>
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
-                    fill="rgb(255, 74, 38)"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
-              alt="administracja biurowa"
-            />
-          </div>
-
-          <div class="card-container desktop">
-            <div class="card">
-              <h2>Praca za granicą</h2>
-              <div>
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
-                    fill="rgb(255, 74, 38)"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
-              alt="administracja biurowa"
-            />
-          </div>
-
-          <div class="card-container desktop">
-            <div class="card">
-              <h2>Produkcja</h2>
-              <div>
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
-                    fill="rgb(255, 74, 38)"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
-              alt="administracja biurowa"
-            />
-          </div>
-
-          <div class="card-container desktop">
-            <div class="card">
-              <h2>Przedstawiciel handlowy</h2>
-              <div>
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
-                    fill="rgb(255, 74, 38)"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
-              alt="administracja biurowa"
-            />
-          </div>
+          <img
+            src="https://bliskopracy.pl/images/categories/kierowca-kurier.png"
+            alt="kierowca/kurier"
+          />
         </div>
 
-        <div class="btn">
-          <button>
+        <div class="card-container desktop">
+          <div class="card">
+            <div class="card-details">
+              <h2>Magazynier</h2>
+            <div>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                  fill="rgb(255, 74, 38)"
+                ></path>
+              </svg>
+            </div>
+            </div>
+            <div class="card-icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 1H28V12H38V27H40V39H0V23H3V14H10V1ZM21 37V25H2V37H21ZM23 29V37H38V29H23ZM23 27V23H21V14H36V27H23ZM26 3V12H19V14H12V3H26ZM5 16H19V23H5V16Z" fill="#4A2CC2"></path><g style="mix-blend-mode: darken;"><path d="M18 1V6H20V1H22V8H16V1H18Z" fill="#FF4A26"></path><path d="M28 17V12H26V19H32V12H30V17H28Z" fill="#FF4A26"></path><path d="M10 28V23H8V30H14V23H12V28H10Z" fill="#FF4A26"></path></g></svg>
+            </div>
+          </div>
+
+          <img
+            src="https://bliskopracy.pl/images/categories/magazynier.png"
+            alt="magazynier"
+          />
+        </div>
+
+        <div class="card-container desktop">
+          <div class="card">
+            <div class="card-details">
+              <h2>Obsługa klienta</h2>
+            <div>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                  fill="rgb(255, 74, 38)"
+                ></path>
+              </svg>
+            </div>
+            </div>
+            <div class="card-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 14.3433C20 11.7925 18.2813 9.56385 15.8576 8.89227C15.7052 5.34172 12.7695 2.5 9.18213 2.5C5.49753 2.5 2.5 5.49753 2.5 9.18213C2.5 10.383 2.81963 11.5521 3.42659 12.5786L2.52457 15.8396L5.78566 14.9377C6.7292 15.4956 7.79358 15.8099 8.89214 15.8573C9.56358 18.2811 11.7923 20 14.3433 20C15.3614 20 16.3516 19.7288 17.2216 19.2136L19.9753 19.9753L19.2136 17.2216C19.7288 16.3516 20 15.3614 20 14.3433ZM5.94748 13.829L3.99523 14.369L4.53529 12.4168L4.41219 12.2243C3.83207 11.3166 3.52539 10.2647 3.52539 9.18213C3.52539 6.06297 6.06297 3.52539 9.18213 3.52539C12.3013 3.52539 14.8389 6.06297 14.8389 9.18213C14.8389 12.3013 12.3013 14.8389 9.18213 14.8389C8.09959 14.8389 7.04777 14.5322 6.14 13.9521L5.94748 13.829ZM18.5048 18.5048L17.0561 18.104L16.8627 18.2299C16.1127 18.7171 15.2414 18.9746 14.3433 18.9746C12.3384 18.9746 10.5767 17.6783 9.95251 15.8195C13.0225 15.4656 15.4656 13.0225 15.8197 9.95237C17.6783 10.5767 18.9746 12.3384 18.9746 14.3433C18.9746 15.2414 18.7171 16.1127 18.2299 16.8627L18.104 17.0561L18.5048 18.5048Z" fill="#4A2CC2"></path><path d="M8.66943 11.7627H9.69482V12.7881H8.66943V11.7627Z" fill="#FF4A26"></path><path d="M10.2075 7.62695C10.2075 7.91815 10.089 8.18691 9.87373 8.38385L8.66943 9.48614V10.7373H9.69482V9.93769L10.566 9.14034C10.9898 8.75248 11.2329 8.20093 11.2329 7.62695C11.2329 6.49609 10.313 5.57617 9.18213 5.57617C8.05126 5.57617 7.13135 6.49609 7.13135 7.62695H8.15674C8.15674 7.06152 8.6167 6.60156 9.18213 6.60156C9.74756 6.60156 10.2075 7.06152 10.2075 7.62695Z" fill="#FF4A26"></path></svg>
+            </div>
+          </div>
+          <img
+            src="https://bliskopracy.pl/images/categories/obsluga-klienta.png"
+            alt="obsługa klienta"
+          />
+        </div>
+
+        <div class="card-container desktop">
+          <div class="card">
+            <div class="card-details">
+              <h2>Praca za granicą</h2>
+            <div>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                  fill="rgb(255, 74, 38)"
+                ></path>
+              </svg>
+            </div>
+            </div>
+            <div class="card-icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 2C10.0589 2 2 10.0589 2 20C2 29.9411 10.0589 38 20 38C29.9411 38 38 29.9411 38 20C38 10.0589 29.9411 2 20 2ZM9.49519 7.93117C12.3058 5.48273 15.9797 4 20 4C22.4521 4 24.7753 4.5516 26.8524 5.53747L24.5658 15.5986L20.0395 22.388L16.3499 21.6501L14.4104 11.9527L9.49519 7.93117ZM8.06416 9.34445C5.53652 12.1738 4 15.9075 4 20C4 26.1177 7.43351 31.4335 12.4786 34.1255L17.0607 30.0526L24.651 28.9683L30.7992 31.8059C33.9955 28.8806 36 24.6744 36 20C36 14.3599 33.0817 9.40145 28.6728 6.55216L26.4343 16.4013L20.9606 24.6119L14.6502 23.3498L12.5897 13.0472L8.06416 9.34445ZM29.0457 33.1994L24.3491 31.0317L17.9395 31.9474L14.4801 35.0223C16.2007 35.6547 18.06 36 20 36C23.3571 36 26.4727 34.9661 29.0457 33.1994Z" fill="#4A2CC2"></path><g style="mix-blend-mode: darken;"><path d="M34.5533 9.40543C34.867 9.39666 35.1439 9.40863 35.3833 9.43953C36.0431 9.52471 36.212 9.72077 36.2489 9.78474C36.3019 9.87663 36.4007 10.2732 35.8479 11.2433C35.3352 12.1429 34.41 13.2602 33.0977 14.5228C30.4846 17.037 26.5022 19.9703 21.7682 22.7034C17.0342 25.4366 12.5027 27.4189 9.01878 28.4248C7.26917 28.93 5.83897 29.1725 4.80356 29.1667C3.68709 29.1604 3.39297 28.8766 3.33993 28.7847C3.30505 28.7243 3.22464 28.5024 3.44042 27.9454C3.49257 27.8107 3.55848 27.6666 3.63858 27.5134C3.62309 27.4797 3.6077 27.446 3.59242 27.4122C3.26873 26.6967 2.99049 25.9564 2.76133 25.195C2.23559 25.8953 1.82546 26.5776 1.57546 27.2229C1.26086 28.035 1.13611 28.9676 1.60788 29.7847C2.23794 30.876 3.56394 31.1598 4.79232 31.1667C6.10176 31.174 7.74114 30.8754 9.57359 30.3463C13.2538 29.2837 17.9363 27.2252 22.7682 24.4355C27.6 21.6458 31.7241 18.6199 34.4844 15.964C35.8588 14.6416 36.9372 13.3712 37.5855 12.2335C38.1937 11.1663 38.611 9.87605 37.9809 8.78474C37.4851 7.92597 36.5514 7.57374 35.6393 7.45599C34.8779 7.35768 33.9815 7.39955 32.9975 7.54752C33.5564 8.13071 34.0764 8.75141 34.5533 9.40543Z" fill="#FF4A26"></path></g></svg>
+            </div>
+          </div>
+          <img
+            src="https://bliskopracy.pl/images/categories/praca-za-granica.png"
+            alt="praca za granicą"
+          />
+        </div>
+
+        <div class="card-container desktop">
+          <div class="card">
+            <div class="card-details">
+              <h2>Produkcja</h2>
+            <div>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                  fill="rgb(255, 74, 38)"
+                ></path>
+              </svg>
+            </div>
+            </div>
+            <div class="card-icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><g style="mix-blend-mode: darken;"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.4142 7.00001L19.7071 3.29291L18.2928 4.70712L22 8.41427V20H36V8.41418L39.7071 4.70712L38.2928 3.29291L34.5857 7.00001H23.4142ZM24 18V9.00001H34V18H24Z" fill="#FF4A26"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M17 7.00001H3V20H17V7.00001ZM5 18V9.00001H15V18H5Z" fill="#FF4A26"></path></g><path d="M10 24C10.5523 24 11 23.5523 11 23C11 22.4477 10.5523 22 10 22C9.44771 22 9 22.4477 9 23C9 23.5523 9.44771 24 10 24Z" fill="#4A2CC2"></path><path d="M21 23C21 23.5523 20.5523 24 20 24C19.4477 24 19 23.5523 19 23C19 22.4477 19.4477 22 20 22C20.5523 22 21 22.4477 21 23Z" fill="#4A2CC2"></path><path d="M30 24C30.5523 24 31 23.5523 31 23C31 22.4477 30.5523 22 30 22C29.4477 22 29 22.4477 29 23C29 23.5523 29.4477 24 30 24Z" fill="#4A2CC2"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5 18C2.23858 18 0 20.2386 0 23C0 25.7614 2.23858 28 5 28H9.5V34H11.5V28H29V34H31V28H35C37.7614 28 40 25.7614 40 23C40 20.2386 37.7614 18 35 18H5ZM2 23C2 21.3431 3.34315 20 5 20H35C36.6569 20 38 21.3431 38 23C38 24.6569 36.6569 26 35 26H5C3.34315 26 2 24.6569 2 23Z" fill="#4A2CC2"></path></svg>
+            </div>
+          </div>
+          <img
+            src="https://bliskopracy.pl/images/categories/produkcja.png"
+            alt="produkcja"
+          />
+        </div>
+
+        <div class="card-container desktop">
+          <div class="card">
+            <div class="card-details">
+              <h2>Przedstawiciel handlowy</h2>
+            <div>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                  fill="rgb(255, 74, 38)"
+                ></path>
+              </svg>
+            </div>
+            </div>
+            <div class="card-icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9H37V22L20 26L3 22V9Z" stroke="#4A2CC2" stroke-width="2"></path><path d="M5 22V35H35V22" stroke="#4A2CC2" stroke-width="2"></path><rect x="18" y="23" width="4" height="6" stroke="#FF4A26" stroke-width="2"></rect><g style="mix-blend-mode: darken;"><path d="M27 10V5H13V10" stroke="#FF4A26" stroke-width="2"></path></g></svg>
+            </div>
+          </div>
+          <img
+            src="https://bliskopracy.pl/images/categories/przedstawiciel-handlowy.png"
+            alt="przedstawiciel handlowy"
+          />
+        </div>
+
+        <div class="btn-container">
+          <button class="btn">
             <div class="btn-in">
               Pokaż wszystkie kategorie
               <svg
