@@ -4,6 +4,654 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bliskopracy.pl</title>
+    <style>
+      :root {
+        --lightgrey: rgb(112, 117, 125);
+        --grey: rgb(41, 44, 51);
+        --white: rgb(255, 255, 255);
+        --bg: rgb(229, 232, 235);
+      }
+
+      @font-face {
+        font-family: TTNormsProRegular;
+        src: url("./fonts/TTNormsProRegular.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: TTNormsProLight;
+        src: url("./fonts/TTNormsProLight.otf") format("opentype");
+      }
+
+      body {
+        background: var(--bg);
+        font-family: TTNormsProLight;
+        font-size: 16px;
+      }
+
+      .main-container {
+        width: 100%;
+        margin: 0px auto;
+      }
+
+      .header {
+        text-align: center;
+      }
+
+      h3 {
+        color: var(--lightgrey);
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        margin-top: 2.5rem;
+      }
+
+      h2 {
+        color: var(--grey);
+        font-size: 1.5rem;
+        font-weight: 100;
+        margin-top: 0.2rem;
+        margin-bottom: 2.5rem;
+        font-weight: 600;
+      }
+
+      .cards-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--white);
+        width: 80%;
+        height: 5rem;
+        margin-bottom: 1rem;
+        margin-left: 1.563rem;
+        text-align: center;
+        position: relative;
+      }
+
+      .card-container > img {
+        max-width: 100%;
+        width: 4rem;
+        height: 4rem;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      svg {
+        height: 1.25rem;
+        width: 1.25rem;
+      }
+
+      .card {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+      }
+
+      .card > h2 {
+        color: var(--grey);
+        font-size: 1rem;
+        font-weight: 500;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .card-icon {
+        height: 1.25rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 0.5rem;
+      }
+
+      .desktop {
+        display: none;
+      }
+
+      .btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+
+      .btn > button {
+        font-family: TTNormsProRegular;
+        font-size: 0.875rem;
+        border: 1px solid var(--white);
+        border-radius: 2px;
+        cursor: pointer;
+        width: 18.5rem;
+        height: 3.5rem;
+        color: var(--grey);
+        letter-spacing: 1px;
+        font-weight: 900;
+        background-color: var(--bg);
+      }
+
+      .btn-in {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+      }
+
+      .btn-in > svg {
+        margin-left: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+      }
+
+      @media screen and (min-width: 600px) {
+        .main-container {
+          max-width: 33.5rem;
+        }
+      }
+
+      @media screen and (min-width: 770px) {
+        .main-container {
+          max-width: 45rem;
+        }
+
+        .cards-main {
+          flex-flow: row wrap;
+        }
+
+        .card-container {
+          width: 100%;
+          height: auto;
+          min-height: 8.5rem;
+          margin: 3.75rem 0.75rem 1rem;
+          max-width: calc(50% - 1.5rem);
+        }
+      }
+    </style>
   </head>
-  <body></body>
+
+  <body>
+    <main>
+      <div class="main-container">
+        <section class="header">
+          <h3>kategorie</h3>
+          <h2>Jakiej pracy szukasz?</h2>
+        </section>
+        <div class="cards-main">
+          <div class="card-container">
+            <div class="card">
+              <h2>Administracja biurowa</h2>
+
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="card-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5 12H1V38H34.7808L39.2808 20H35V12H31V14H33V20H5.21927L3 28.8771V14H5V12ZM3.28083 36H33.2193L36.7193 22H6.78083L3.28083 36Z"
+                  fill="#4A2CC2"
+                ></path>
+                <g style="mix-blend-mode: darken">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M5 2H24.4142L31 8.58579V22H29V9.41421L23.5858 4H7V22H5V2Z"
+                    fill="#FF4A26"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+
+            <img
+              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
+              alt="administracja biurowa"
+            />
+          </div>
+
+          <div class="card-container">
+            <div class="card">
+              <h2>Budowa i remonty</h2>
+
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="card-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M0 5H21V14H31V23H40V34H0V5ZM2 7V32H38V25H29V16H19V7H2Z"
+                  fill="#4A2CC2"
+                ></path>
+                <g style="mix-blend-mode: darken">
+                  <path
+                    d="M12 16H21V14H0V16H10V23H0V25H19V34H21V25H31V23H12V16Z"
+                    fill="#FF4A26"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+
+            <img
+              src="https://bliskopracy.pl/images/categories/budowa-i-remonty.png"
+              alt="budowa i remonty"
+            />
+          </div>
+
+          <div class="card-container">
+            <div class="card">
+              <h2>E-commerce</h2>
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="card-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.8989 4.32699C17.8113 4.21752 17.6787 4.1538 17.5385 4.1538H5.25475L4.91125 2.66537C4.86291 2.45596 4.67644 2.30762 4.46153 2.30762H2.46153C2.20666 2.30762 2 2.51427 2 2.76918C2 3.02409 2.20666 3.23071 2.46153 3.23071H4.09437L6.426 13.3345C6.47431 13.5439 6.66081 13.6922 6.87572 13.6922H16.1231C16.378 13.6922 16.5846 13.4856 16.5846 13.2307C16.5846 12.9758 16.3779 12.7692 16.1231 12.7692H7.24291L6.88791 11.2307H16.1539C16.3698 11.2307 16.5568 11.0811 16.6042 10.8705L17.9888 4.71665C18.0195 4.57984 17.9865 4.43649 17.8989 4.32699ZM15.7846 10.3076H6.67487L5.46778 5.07687H16.9615L15.7846 10.3076Z"
+                  fill="#4A2CC2"
+                ></path>
+                <path
+                  d="M8.76928 14.3077C7.83615 14.3077 7.07697 15.0669 7.07697 16.0001C7.07697 16.9332 7.83612 17.6924 8.76928 17.6924C9.7024 17.6924 10.4616 16.9332 10.4616 16.0001C10.4616 15.0669 9.70243 14.3077 8.76928 14.3077ZM8.76928 16.7693C8.34512 16.7693 8.00006 16.4242 8.00006 16.0001C8.00006 15.5759 8.34512 15.2308 8.76928 15.2308C9.19343 15.2308 9.5385 15.5759 9.5385 16.0001C9.5385 16.4242 9.19343 16.7693 8.76928 16.7693Z"
+                  fill="#FF4A26"
+                ></path>
+                <path
+                  d="M14.3077 14.3077C13.3745 14.3077 12.6154 15.0669 12.6154 16.0001C12.6154 16.9332 13.3745 17.6924 14.3077 17.6924C15.2408 17.6924 16 16.9332 16 16.0001C16 15.0669 15.2408 14.3077 14.3077 14.3077ZM14.3077 16.7693C13.8835 16.7693 13.5384 16.4242 13.5384 16.0001C13.5384 15.5759 13.8835 15.2309 14.3077 15.2309C14.7318 15.2309 15.0769 15.5759 15.0769 16.0001C15.0769 16.4242 14.7318 16.7693 14.3077 16.7693Z"
+                  fill="#FF4A26"
+                ></path>
+              </svg>
+            </div>
+
+            <img
+              src="https://bliskopracy.pl/images/categories/e-commerce.png"
+              alt="e-commerce"
+            />
+          </div>
+
+          <div class="card-container">
+            <div class="card">
+              <h2>Gastronomia</h2>
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="card-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g style="mix-blend-mode: darken">
+                  <path
+                    d="M16 32V28H14V32H8V34H32V32H26V28H24V32H21V28H19V32H16Z"
+                    fill="#FF4A26"
+                  ></path>
+                </g>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M20 2C23.5519 2 26.6232 4.05757 28.0871 7.04581C28.3875 7.01551 28.692 7 29 7C33.9706 7 38 11.0294 38 16C38 19.9187 35.4956 23.2524 32 24.4879V38H8V24.4879C4.50442 23.2524 2 19.9187 2 16C2 11.0294 6.02944 7 11 7C11.308 7 11.6125 7.01551 11.9129 7.04581C13.3768 4.05757 16.4481 2 20 2ZM13 11C13 7.13401 16.134 4 20 4C23.866 4 27 7.13401 27 11C27 11.6961 26.8987 12.3672 26.7104 13H28.7768C28.9229 12.3562 29 11.6867 29 11C29 10.3138 28.9232 9.64562 28.7778 9.00345C28.8515 9.00116 28.9256 9 29 9C32.866 9 36 12.134 36 16C36 19.866 32.866 23 29 23C28.6601 23 28.3262 22.9758 28 22.9292V24.945C28.3286 24.9814 28.6622 25 29 25C29.338 25 29.6717 24.9814 30 24.9451V36H10V24.9451C10.3283 24.9814 10.662 25 11 25C11.3378 25 11.6714 24.9813 12 24.945V22.9292C11.6738 22.9758 11.3399 23 11 23C7.13401 23 4 19.866 4 16C4 12.134 7.13401 9 11 9C11.0744 9 11.1485 9.00116 11.2222 9.00345C11.0768 9.64562 11 10.3138 11 11C11 11.6867 11.0771 12.3562 11.2232 13H13.2896C13.1013 12.3672 13 11.6961 13 11Z"
+                  fill="#4A2CC2"
+                ></path>
+              </svg>
+            </div>
+
+            <img
+              src="https://bliskopracy.pl/images/categories/gastronomia.png"
+              alt="gastronomia"
+            />
+          </div>
+
+          <div class="card-container">
+            <div class="card">
+              <h2>IT/telekomunikacja</h2>
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="card-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M2 8C2 6.34315 3.34315 5 5 5H35C36.6569 5 38 6.34315 38 8V29H36V8C36 7.44772 35.5523 7 35 7H5C4.44771 7 4 7.44772 4 8V29H2V8Z"
+                  fill="#4A2CC2"
+                ></path>
+                <g style="mix-blend-mode: darken">
+                  <path
+                    d="M20 11C20.5523 11 21 10.5523 21 10C21 9.44772 20.5523 9 20 9C19.4477 9 19 9.44772 19 10C19 10.5523 19.4477 11 20 11Z"
+                    fill="#FF4A26"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M15.4142 27H0V32C0 33.6569 1.34314 35 3 35H37C38.6569 35 40 33.6569 40 32V27H24.5858L22.5858 29H17.4142L15.4142 27ZM2 32V29H14.5858L16.5858 31H23.4142L25.4142 29H38V32C38 32.5523 37.5523 33 37 33H3C2.44771 33 2 32.5523 2 32Z"
+                    fill="#FF4A26"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+
+            <img
+              src="https://bliskopracy.pl/images/categories/it-telekomunikacja.png"
+              alt="it/telekomunikacja"
+            />
+          </div>
+
+          <div class="card-container">
+            <div class="card">
+              <h2>Ekspedient/kasjer</h2>
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="card-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g style="mix-blend-mode: darken">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4 12H36V20.7639L40 28.7639V38H0V28.7639L4 20.7639V12ZM5.61804 22H34.382L37.382 28H2.61804L5.61804 22ZM2 30V36H38V30H2ZM6 14V20H34V14H6Z"
+                    fill="#4A2CC2"
+                  ></path>
+                </g>
+                <g style="mix-blend-mode: darken">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M20 2H34V10H28V14H26V10H20V2ZM22 4V8H32V4H22Z"
+                    fill="#FF4A26"
+                  ></path>
+                  <path d="M22 24H24V26H22V24Z" fill="#FF4A26"></path>
+                  <path d="M28 24H26V26H28V24Z" fill="#FF4A26"></path>
+                  <path d="M30 24H32V26H30V24Z" fill="#FF4A26"></path>
+                </g>
+              </svg>
+            </div>
+
+            <img
+              src="https://bliskopracy.pl/images/categories/ekspedient-kasjer.png"
+              alt="ekspedient/kasjer"
+            />
+          </div>
+
+          <div class="card-container desktop">
+            <div class="card">
+              <h2>Kierowca/kurier</h2>
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <img
+              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
+              alt="administracja biurowa"
+            />
+          </div>
+
+          <div class="card-container desktop">
+            <div class="card">
+              <h2>Magazynier</h2>
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <img
+              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
+              alt="administracja biurowa"
+            />
+          </div>
+
+          <div class="card-container desktop">
+            <div class="card">
+              <h2>Obsługa klienta</h2>
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <img
+              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
+              alt="administracja biurowa"
+            />
+          </div>
+
+          <div class="card-container desktop">
+            <div class="card">
+              <h2>Praca za granicą</h2>
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <img
+              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
+              alt="administracja biurowa"
+            />
+          </div>
+
+          <div class="card-container desktop">
+            <div class="card">
+              <h2>Produkcja</h2>
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <img
+              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
+              alt="administracja biurowa"
+            />
+          </div>
+
+          <div class="card-container desktop">
+            <div class="card">
+              <h2>Przedstawiciel handlowy</h2>
+              <div>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.5859 15.0001L16.293 10.7072L17.7072 9.29297L24.4143 16.0001L17.7072 22.7072L16.293 21.293L20.5859 17.0001H8V15.0001H20.5859Z"
+                    fill="rgb(255, 74, 38)"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <img
+              src="https://bliskopracy.pl/images/categories/administracja-biurowa.png"
+              alt="administracja biurowa"
+            />
+          </div>
+        </div>
+
+        <div class="btn">
+          <button>
+            <div class="btn-in">
+              Pokaż wszystkie kategorie
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.8889 18.4251L8.93893 11.4751L7.52493 12.8891L15.8889 21.2531L24.2529 12.8891L22.8389 11.4751L15.8889 18.4251Z"
+                  fill="rgb(255, 74, 38)"
+                ></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
